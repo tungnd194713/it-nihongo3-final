@@ -11,6 +11,15 @@
       <span class="number-of-reviews">Based on <%= @book.reviews.count %> reviews</span>
       <p class="book-desc"><%= @book.description %></p>
     </div>
+    <div class="links btn-group">
+  <%= link_to "Back", root_path, class: "btn btn-custom"%>
+  <% if user_signed_in? %>
+    <% if @book.user_id == current_user.id %>
+      <%= link_to "Edit", edit_book_path(@book), class: "btn btn-custom" %>
+      <%= link_to "Delete", book_path(@book), class: "btn btn-custom", method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  <% end %>
+</div>
   </div>
 </div>
 
@@ -25,15 +34,7 @@
     </div>
   </div>
 </div>
-<div class="links btn-group">
-  <%= link_to "Back", root_path, class: "btn btn-custom"%>
-  <% if user_signed_in? %>
-    <% if @book.user_id == current_user.id %>
-      <%= link_to "Edit", edit_book_path(@book), class: "btn btn-custom" %>
-      <%= link_to "Delete", book_path(@book), class: "btn btn-custom", method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>
-  <% end %>
-</div>
+
 
 <script>
   $('.review-rating').raty({
@@ -53,4 +54,14 @@
       return $(this).attr('data-score')
     }
   });
+</script>
+<script>
+    $(document).ready(function(){
+      $(".review_replay_btn").click(function (e){
+      e.preventDefault();
+      const reply_box=$(this).parent().find('.reply_form');
+      reply_box.toggle('fast');
+      });
+  
+    });
 </script>

@@ -112,7 +112,6 @@ GEM
       nokogiri (~> 1)
       rake
     mini_mime (1.1.2)
-    mini_portile2 (2.8.1)
     minitest (5.17.0)
     net-imap (0.3.4)
       date
@@ -124,8 +123,7 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.14.1)
-      mini_portile2 (~> 2.8.0)
+    nokogiri (1.14.1-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     paperclip (5.3.0)
@@ -134,7 +132,6 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
-    pg (1.4.5)
     public_suffix (5.0.1)
     puma (3.12.6)
     racc (1.6.2)
@@ -205,8 +202,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.0)
-      mini_portile2 (~> 2.8.0)
+    sqlite3 (1.6.0-x86_64-linux)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
     thor (1.2.1)
@@ -236,6 +232,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86_64-linux
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3, >= 3.3.7)
@@ -248,7 +245,6 @@ DEPENDENCIES
   jquery-rails
   listen (>= 3.0.5, < 3.2)
   paperclip (~> 5.1)
-  pg
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
@@ -263,4 +259,4 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 BUNDLED WITH
-   2.1.2
+   2.4.6

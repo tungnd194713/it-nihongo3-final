@@ -1,13 +1,36 @@
 <div class="review">
   <div class="review-rating" data-score="<%= review.rating %>"></div>
+  <p class="review-comment" style="color:blue"><%= review.user.email %></p>
   <p class="review-comment"><%= review.comment %></p>
+  
 
   <% if user_signed_in? %>
-    <% if review.user_id == current_user.id %>
-      <div class="links btn-group">  
-        <%= link_to "Edit", edit_book_review_path(review.book, review), class: "btn btn-custom" %>
-        <%= link_to "Delete", book_review_path(review.book, review), class: "btn btn-custom", method: :delete, data: { confirm: "Are you sure?" } %>
+  <% if review.user_id == current_user.id %>
+     <div class="links btn-group">  
+        <%= link_to "Edit", edit_book_review_path(review.book, review)  %>
+        <%= link_to "Delete", book_review_path(review.book, review), method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
     <% end %>
+    <%= link_to "Reply", "",class: "review_replay_btn" %>
+  <%= render review.review_replies %>
+  <div class="reply_form">
+  <%= simple_form_for([@book,review,review.review_replies.build]) do |f| %>
+    <%= f.error_notification %>
+  
+    <div class="form-inputs">
+      <%= f.hidden_field :review_id , value: review.id%>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.input :comment %>
+    </div>
+  
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+  </div>
+  
+  
+ 
+    
   <% end %>
 </div>
