@@ -1,0 +1,21 @@
+
+<div class="search-box">
+<%= form_tag(search_path, method: :get) do %>
+  <%= select_tag(:category_id,options_for_select(@categories,params[:category_id]), :prompt => "Select a category") %>
+  <%= text_field_tag :term,params[:term] ,placeholder: "Enter title or author name"%>
+  <%= submit_tag 'Search' %>
+<% end %>
+</div>
+<% if @books.count == 0 %>
+  <h1>There are no books</h1>
+<% else %>
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="col-md-3">
+        <a href="/books/<%= book.id %>">
+          <%= image_tag book.book_img.url(:original), class: "book" %>
+        </a>
+      </div>
+    <% end %>
+  </div>
+<% end %>
