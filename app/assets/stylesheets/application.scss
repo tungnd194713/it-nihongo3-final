@@ -190,6 +190,7 @@ p.alert, p.notice {
 		line-height: 1.5;
 		margin-bottom: 15px;
 		margin-top: 15px;
+		white-space: pre-line;
 	}
 
 }
@@ -219,10 +220,12 @@ p.alert, p.notice {
 		border-bottom: 1px solid gainsboro;
 		margin-bottom: 15px;
 		padding-bottom: 10px;
+		word-wrap: break-word;
 
 		.review-comment {
 			font-size: 1.05em;
 			line-height: 1.5;
+			white-space: pre-line;
 		}
 
 	}
@@ -232,7 +235,16 @@ p.alert, p.notice {
 	}
 
 }
-
+.review_replies{
+    margin-top: 20px;
+}
+.review-reply-comment{
+	font-size: 1.05em;
+	line-height: 1.5;
+	white-space: pre-line;
+	margin-top: 10px;
+	margin-bottom: 0px;
+}
 /* New Book Form styles */
 
 .new-book-form {

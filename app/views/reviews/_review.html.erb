@@ -5,13 +5,15 @@
   
 
   <% if user_signed_in? %>
+  <div class="links btn-group">  
   <% if review.user_id == current_user.id %>
-     <div class="links btn-group">  
+    
         <%= link_to "Edit", edit_book_review_path(review.book, review)  %>
         <%= link_to "Delete", book_review_path(review.book, review), method: :delete, data: { confirm: "Are you sure?" } %>
-      </div>
+     
     <% end %>
     <%= link_to "Reply", "",class: "review_replay_btn" %>
+    </div>
   <%= render review.review_replies %>
   <div class="reply_form">
   <%= simple_form_for([@book,review,review.review_replies.build]) do |f| %>

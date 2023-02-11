@@ -20,12 +20,7 @@
     <% end %>
   <% end %>
 </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="reviews">
+<div class="reviews">
       <h1>Reviews</h1>
       <%= render @book.reviews %>
         <div>
@@ -34,6 +29,7 @@
     </div>
   </div>
 </div>
+
 
 
 <script>
@@ -59,7 +55,7 @@
     $(document).ready(function(){
       $(".review_replay_btn").click(function (e){
       e.preventDefault();
-      const reply_box=$(this).parent().find('.reply_form');
+      const reply_box=$(this).parent().parent().find('.reply_form');
       reply_box.toggle('fast');
       });
   
