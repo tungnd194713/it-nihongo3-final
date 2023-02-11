@@ -1,5 +1,5 @@
 class ReviewRepliesController < ApplicationController
-  before_action :set_book, only: [:show,:edit, :update, :destroy]
+  before_action :set_book, only: [:show,:edit,:create, :update, :destroy]
   before_action :set_review, only: [:show,:edit, :update, :destroy]
   before_action :set_review_reply, only: [:edit, :update, :destroy]
 
