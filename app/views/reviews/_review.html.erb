@@ -13,12 +13,13 @@
      
     <% end %>
     <%= link_to "Reply", "",class: "review_replay_btn" %>
+    <% end %>
     </div>
   <%= render review.review_replies %>
   <div class="reply_form">
   <%= simple_form_for([@book,review,review.review_replies.build]) do |f| %>
     <%= f.error_notification %>
-  
+    <% if user_signed_in? %>
     <div class="form-inputs">
       <%= f.hidden_field :review_id , value: review.id%>
       <%= f.hidden_field :user_id, value: current_user.id %>
@@ -28,7 +29,8 @@
     <div class="form-actions">
       <%= f.button :submit %>
     </div>
-  <% end %>
+    <% end %>
+
   </div>
   
   
